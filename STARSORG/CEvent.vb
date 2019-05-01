@@ -1,4 +1,6 @@
-﻿Imports System.Data.SqlClient
+'This is code for an event form
+
+Imports System.Data.SqlClient
 Public Class CEvent
     'Represents a single record in the ROLE table
     Private _mstrEventID As String
@@ -21,6 +23,8 @@ Public Class CEvent
         _mstrLocation = ""
 
     End Sub
+    
+    'these properties help with storing and retrieving info from the database or Event form
 
 #Region "Exposed Properties"
     Public Property EventID As String
@@ -94,6 +98,8 @@ Public Class CEvent
             _isNewEvent = blnVal
         End Set
     End Property
+    
+    'these properties assign the parameters for the saveEvent stored procedure and indicate whether its an update or an insert
 
     Public ReadOnly Property GetSaveParameters() As ArrayList
         'this property's code will create the parameters for the store procedure to save a record
@@ -110,6 +116,8 @@ Public Class CEvent
         End Get
     End Property
 #End Region
+
+
 
     Public Function Save() As Integer
         'return -1 if the ID already exits (and we cannot create a new record with duplicate ID)
