@@ -1,7 +1,11 @@
-﻿Imports System.Data.SqlClient
+'A second Event class, that connects the frmEvent and the CEvent class
+
+Imports System.Data.SqlClient
 Public Class CEvents
     Private _Event As CEvent
-
+    
+    
+    'All of these fucntions and properties are shortcuts for the Event
     Public Sub New()
         'instantiate the CRole Object
         _Event = New CEvent
@@ -18,7 +22,6 @@ Public Class CEvents
     End Sub
 
     Public Sub CreateNewEvent()
-        'call this when creating the edit portion of the screen to add a new role
         Clear()
         _Event.IsNewEvent = True
     End Sub
