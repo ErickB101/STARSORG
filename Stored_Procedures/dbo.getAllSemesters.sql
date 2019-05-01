@@ -1,0 +1,5 @@
+CREATE PROCEDURE [dbo].getAllSemesters
+
+AS
+	SELECT * FROM SEMESTER
+RETURN 0

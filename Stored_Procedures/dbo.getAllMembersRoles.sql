@@ -1,0 +1,5 @@
+CREATE PROCEDURE [dbo].getAllMembersRoles
+
+AS
+	SELECT * FROM MEMBER_ROLE
+RETURN 0
