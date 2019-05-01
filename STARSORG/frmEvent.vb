@@ -1,4 +1,6 @@
-﻿Imports System.Data.SqlClient
+'this is code for the Event form displayed to the user
+
+Imports System.Data.SqlClient
 Public Class frmEvent
     Private objEvents As CEvents
     Private blnClearing As Boolean
