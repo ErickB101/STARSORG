@@ -4,6 +4,7 @@ Public Class frmEvent
     Private blnClearing As Boolean
     Private blnReloading As Boolean
 
+    'created focus functions that is determined by whether the textbox is selected or not
 #Region "Textboxes"
     Private Sub txtBoxes_GotFocus(sender As Object, e As EventArgs) Handles txtEventID.GotFocus, txtDesc.GotFocus, txtLocation.GotFocus
         Dim txtBox As TextBox
@@ -17,6 +18,8 @@ Public Class frmEvent
         txtBox.DeselectAll()
     End Sub
 #End Region
+
+'this region controls the tool bar on the STARSORG main page
 
 #Region "Toolbar stuff"
     Private Sub tsbProxy_MouseEnter(sender As Object, e As EventArgs) Handles tsbCourse.MouseEnter, tsbEvent.MouseEnter, tsbHelp.MouseEnter, tsbHome.MouseEnter, tsbLogOut.MouseEnter, tsbMember.MouseEnter, tsbRole.MouseEnter, tsbRSVP.MouseEnter, tsbSemester.MouseEnter, tsbTutor.MouseEnter, tsbAdmin.MouseEnter, tsbMemberRoles.MouseEnter
@@ -91,6 +94,8 @@ Public Class frmEvent
     End Sub
 #End Region
 
+'this loads all the events on a list box so the user can select it and view its contents
+
     Private Sub LoadEvents()
         Dim objReader As SqlDataReader
         lstEvents.Items.Clear()
@@ -109,6 +114,8 @@ Public Class frmEvent
         blnReloading = False
     End Sub
 
+'this loads all the Event Types on a combo box so the user can select it 
+
     Private Sub LoadTypes()
         Dim objReader As SqlDataReader
         cboTypeID.Items.Clear()
@@ -122,6 +129,8 @@ Public Class frmEvent
             'already handled in CDB
         End Try
     End Sub
+
+'this loads all the Semesters on a combo box so the user can select it 
 
     Private Sub LoadSemesters()
         Dim objReader As SqlDataReader
@@ -137,6 +146,7 @@ Public Class frmEvent
         End Try
     End Sub
 
+'these 2 subs basically loads every function that needs to be loaded when the page starts up
     Private Sub frmEvent_Load(sender As Object, e As EventArgs) Handles Me.Load
         objEvents = New CEvents
         LoadTypes()
@@ -152,6 +162,8 @@ Public Class frmEvent
         blnClearing = False
         blnReloading = False
     End Sub
+
+'these 2 subs have to do with loading the Event records information from the database
 
     Private Sub lstEvents_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstEvents.SelectedIndexChanged
         If blnClearing Then
@@ -205,6 +217,8 @@ Public Class frmEvent
         End Try
     End Sub
 
+'this controls what happens when the user checks the new event box
+
     Private Sub chkNew_CheckedChanged(sender As Object, e As EventArgs) Handles chkNew.CheckedChanged
         If blnClearing Then
             Exit Sub
@@ -236,6 +250,8 @@ Public Class frmEvent
         End If
     End Sub
 
+'this sub controls what happens when the user clicks the cancel button
+
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         blnClearing = True
         tslStatus.Text = ""
@@ -253,6 +269,7 @@ Public Class frmEvent
 
     End Sub
 
+'this sub controls what happens when the user clicks the save button
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
 
